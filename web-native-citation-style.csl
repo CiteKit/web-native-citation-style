@@ -12,7 +12,7 @@
     <summary>General-purpose citation style for web publishing, using individually bracketed numeric citations and title-first references across digital and traditional media.</summary>
     <category citation-format="numeric"/>
     <category field="generic-base"/>
-    <updated>2026-10-12T14:03:07+00:00</updated>
+    <updated>2026-10-12T15:51:31+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
 
@@ -127,7 +127,10 @@
       <else-if type="software dataset" match="any">
         <group delimiter=", ">
           <text variable="publisher"/>
-          <text variable="version" prefix="Version "/>
+          <group delimiter="">
+            <text term="version" text-case="capitalize-first" suffix=" "/>
+            <text variable="version"/>
+          </group>
         </group>
       </else-if>
       <else-if type="webpage post-weblog" match="any">
@@ -172,11 +175,14 @@
     </date>
   </macro>
   <macro name="access-date">
-    <date variable="accessed" prefix="Accessed: ">
-      <date-part name="month" form="long" suffix=" "/>
-      <date-part name="day" suffix=", "/>
-      <date-part name="year"/>
-    </date>
+    <group delimiter="">
+      <text term="accessed" text-case="capitalize-first" suffix=": "/>
+      <date variable="accessed">
+        <date-part name="month" form="long" suffix=" "/>
+        <date-part name="day" suffix=", "/>
+        <date-part name="year"/>
+      </date>
+    </group>
   </macro>
 
   <bibliography second-field-align="flush" entry-spacing="1">
