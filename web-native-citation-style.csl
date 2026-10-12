@@ -16,14 +16,12 @@
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
 
-  <!-- One independent marker per source, no grouping punctuation, no locators in running text. -->
   <citation>
     <layout delimiter="">
       <text variable="citation-number" prefix="[" suffix="]"/>
     </layout>
   </citation>
 
-  <!-- Full available given names; no initialization and no family-name inversion. -->
   <macro name="author-names">
     <names variable="author">
       <name form="long" initialize="false" delimiter=", "/>
@@ -66,7 +64,6 @@
     </names>
   </macro>
   <macro name="composer-names">
-    <!-- Explicit fallback: CSL locales/processors do not reliably expose a composer label. -->
     <group delimiter="">
       <names variable="composer">
         <name form="long" initialize="false" delimiter=", "/>
@@ -87,7 +84,6 @@
     </names>
   </macro>
 
-  <!-- Creator grouping: chapter book editors belong with the containing work below, not with chapter authors. -->
   <macro name="creators">
     <group delimiter=", ">
       <text macro="author-names"/>
@@ -118,9 +114,6 @@
     </choose>
   </macro>
 
-  <!-- A single platform/publisher field can include a container (series, journal, album),
-       relevant media numbering and a distinct publisher. This field carries no label.
-       CSL has no general equality test to suppress duplicate corporate author/publisher values. -->
   <macro name="platform-publisher">
     <choose>
       <if type="broadcast">
@@ -171,7 +164,6 @@
     </choose>
   </macro>
 
-  <!-- CSL 1.0.2 offers issued and accessed; omit unknown values. -->
   <macro name="publication-date">
     <date variable="issued" prefix="Published: ">
       <date-part name="month" form="long" suffix=" "/>
